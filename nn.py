@@ -165,13 +165,13 @@ def backpropagation(train, test, learning_rate, epochs, n_hidden):
 seed(1)
 filename = 'dataset.csv'
 dataset = load_file(filename)
-
+del dataset[524:]
 for i in range(len(dataset[0])-1):
     str_column_to_float(dataset, i)
 str_column_to_int(dataset, len(dataset[0])-1)
 minmax = dataset_minmax(dataset)
 normalize(dataset, minmax)
-del dataset[524:]
+
 n_folds = 6
 l_rate = 0.3
 n_epoch = 500
